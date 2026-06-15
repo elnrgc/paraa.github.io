@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #22c55e;
+  --color-accent-hover: #16a34a;
+}
+
+html { scroll-behavior: smooth; }
+
+:root {
+  --accent: #22c55e;
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --border-color: #262626;
+  --card-bg: #171717;
+  --radius: 16px;
+}
+
+body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color .3s, color .3s;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #171717; }
+::-webkit-scrollbar-thumb { background: #525252; border-radius: 3px; }
+::selection { background-color: var(--accent); color: #000; }
+
+/* ===========================
+   LIGHT MODE — FULL OVERRIDE
+   =========================== */
+body[data-theme-mode='light'] { background-color: #fafaf9 !important; color: #111827 !important; }
+body[data-theme-mode='light'] ::-webkit-scrollbar-track { background: #f3f4f6 !important; }
+body[data-theme-mode='light'] ::-webkit-scrollbar-thumb { background: #d1d5db !important; }
+
+/* ALL dark backgrounds → white / off-white */
+body[data-theme-mode='light'] .bg-black,
+body[data-theme-mode='light'] .bg-neutral-950,
+body[data-theme-mode='light'] .bg-neutral-900,
+body[data-theme-mode='light'] .bg-\[\#0a0a0a\] { background-color: #ffffff !important; }
+
+body[data-theme-mode='light'] .bg-neutral-800 { background-color: #f3f4f6 !important; }
+
+/* Transparent dark backgrounds → transparent light */
+body[data-theme-mode='light'] .bg-black\/90,
+body[data-theme-mode='light'] .bg-black\/80 { background-color: rgba(255,255,255,0.92) !important; }
+body[data-theme-mode='light'] .bg-black\/60,
+body[data-theme-mode='light'] .bg-black\/50 { background-color: rgba(255,255,255,0.7) !important; }
+
+/* Borders */
+body[data-theme-mode='light'] .border-neutral-900,
+body[data-theme-mode='light'] .border-neutral-800,
+body[data-theme-mode='light'] .border-neutral-700,
+body[data-theme-mode='light'] .border-neutral-600 { border-color: #e5e7eb !important; }
+
+/* Text — ALL dark text classes → proper light equivalents */
+body[data-theme-mode='light'] .text-white { color: #111827 !important; }
+body[data-theme-mode='light'] .text-neutral-300 { color: #374151 !important; }
+body[data-theme-mode='light'] .text-neutral-400 { color: #4b5563 !important; }
+body[data-theme-mode='light'] .text-neutral-500 { color: #6b7280 !important; }
+body[data-theme-mode='light'] .text-neutral-600 { color: #6b7280 !important; }
+body[data-theme-mode='light'] .text-neutral-700,
+body[data-theme-mode='light'] .text-neutral-800,
+body[data-theme-mode='light'] .text-neutral-900 { color: #111827 !important; }
+
+/* Gradients → light-friendly */
+body[data-theme-mode='light'] .from-neutral-950 { --tw-gradient-from: #fafaf9 !important; }
+body[data-theme-mode='light'] .via-black { --tw-gradient-via: #fafaf9 !important; }
+body[data-theme-mode='light'] .to-black { --tw-gradient-to: #fafaf9 !important; }
+body[data-theme-mode='light'] .from-\[\#0a0a0a\] { --tw-gradient-from: #fafaf9 !important; }
+body[data-theme-mode='light'] .from-neutral-900 { --tw-gradient-from: #ffffff !important; }
+body[data-theme-mode='light'] .to-transparent { --tw-gradient-to: transparent !important; }
+body[data-theme-mode='light'] .via-transparent { --tw-gradient-via: transparent !important; }
+
+/* Image overlays — make them WHITE fade instead of BLACK fade */
+body[data-theme-mode='light'] .bg-gradient-to-t { background-image: linear-gradient(to top, rgba(255,255,255,0.95), transparent) !important; }
+body[data-theme-mode='light'] .bg-gradient-to-b { background-image: linear-gradient(to bottom, #fafaf9, #ffffff) !important; }
+body[data-theme-mode='light'] .bg-gradient-to-r { background-image: linear-gradient(to right, rgba(255,255,255,0.9), transparent) !important; }
+
+/* Shadows */
+body[data-theme-mode='light'] .shadow-2xl { box-shadow: 0 20px 50px rgba(0,0,0,0.06) !important; }
+
+/* Inputs & forms */
+body[data-theme-mode='light'] input,
+body[data-theme-mode='light'] textarea,
+body[data-theme-mode='light'] select { color: #111827 !important; background-color: #f9fafb !important; border-color: #d1d5db !important; }
+body[data-theme-mode='light'] input::placeholder,
+body[data-theme-mode='light'] textarea::placeholder { color: #9ca3af !important; }
+
+/* Badge overlays on images — keep dark for contrast */
+body[data-theme-mode='light'] .backdrop-blur-sm,
+body[data-theme-mode='light'] .backdrop-blur-md { backdrop-filter: blur(8px) !important; }

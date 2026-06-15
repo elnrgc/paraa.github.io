@@ -1,0 +1,9 @@
+export { Hero } from './Hero';
+export { Features } from './Features';
+export { SuccessStories } from './SuccessStories';
+export { HowItWorks } from './HowItWorks';
+export { Testimonials } from './Testimonials';
+export { Pricing } from './Pricing';
+export { FAQ } from './FAQ';
+export { CTA } from './CTA';
+export { Integrations } from './Integrations';
